@@ -51,15 +51,22 @@ Before you begin, ensure you have the following installed on your system:
 
 ## Project Structure
 ```
-├── Transaction                # Backend Java Spring Boot application
-│   ├── src/
-│   ├── build.gradle
-│   └── Dockerfile
-├── TransactionFrontend        # Frontend Blazor WebAssembly application
-│   ├── Pages/
-│   ├── Program.cs
-│   └── Dockerfile
 ├── docker-compose.yml         # Docker Compose configuration
+├── Transaction                # Backend Java Spring Boot application
+│   ├── application.yaml
+│   ├── build.gradle
+│   ├── Dockerfile
+│   └── src/
+├── TransactionFrontend        # Frontend Blazor WebAssembly application
+│   ├── Dockerfile
+│   ├── TransactionFrontend
+│   │   ├── App.razor
+│   │   ├── Models/
+│   │   ├── Pages/
+│   │   ├── Program.cs
+│   │   ├── Services/
+│   │   ├── TransactionFrontend.csproj
+│   │   └── wwwroot/
 └── README.md                  # Project documentation
 ```
 
@@ -69,10 +76,9 @@ Before you begin, ensure you have the following installed on your system:
 Clone the repository to your local machine using Git:
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com/jiachengqi/transactionApp.git
+cd transactionApp
 ```
-Replace `https://github.com/your-username/your-repo.git` with the actual repository URL.
 
 ### Building the Docker Images
 Build the Docker images for both the backend and frontend applications:
@@ -86,12 +92,6 @@ Start the applications using Docker Compose:
 
 ```bash
 docker-compose up
-```
-
-To run the containers in detached mode (in the background), use:
-
-```bash
-docker-compose up -d
 ```
 
 ### Accessing the Application
@@ -114,7 +114,5 @@ To stop the running containers, press `Ctrl+C` in the terminal where `docker-com
 ```bash
 docker-compose down
 ```
-
-This command stops and removes the containers, networks, volumes, and images created by `docker-compose up`.
 
 
